@@ -10,7 +10,6 @@ class HeaderScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final localization = AppLocalizations.of(context);
     return Container(
-      width: double.infinity,
       decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
