@@ -10,11 +10,24 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
-  final Locale _locale = const Locale('en');
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
 
+class _MyAppState extends State<MyApp> {
+  final Locale _locale = const Locale('en');
+  ThemeMode _themeMode = ThemeMode.light;
+
+  updateThemeApp() {
+    setState(() {
+      _themeMode == ThemeMode.light
+          ? _themeMode = ThemeMode.dark
+          : _themeMode = ThemeMode.light;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -28,9 +41,15 @@ class MyApp extends StatelessWidget {
       ],
       supportedLocales: AppLocalizations.supportedLocales,
       locale: _locale,
-      theme: ThemeAppConfig.dark().getTheme(_locale.languageCode),
-      home: const Home(),
+      theme: _themeMode == ThemeMode.light
+         ? ThemeAppConfig.light().getTheme(_locale.languageCode)
+         : ThemeAppConfig.dark().getTheme(_locale.languageCode),
+      home: Home(
+        onTab: (){updateThemeApp();},
+        themeMode: _themeMode,
+      ),
     );
   }
 }
+
 

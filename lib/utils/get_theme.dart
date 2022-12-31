@@ -3,25 +3,26 @@ import 'package:flutter/material.dart';
 class ThemeAppConfig {
   final Brightness brightness;
   final Color scaffoldColor;
-  final Color background;
+  final Color primaryColor;
 
   ThemeAppConfig.light()
       : brightness = Brightness.light,
         scaffoldColor = const Color(0xffefefef),
-        background = Colors.white
+        primaryColor = Colors.white
   ;
 
   ThemeAppConfig.dark()
       : brightness = Brightness.dark,
-        background = Colors.black,
+        primaryColor = Colors.black,
         scaffoldColor = const Color(0xff101010);
 
   ThemeData getTheme(String langCode) {
     return ThemeData(
       brightness: brightness,
+      primaryColor: primaryColor,
       scaffoldBackgroundColor: scaffoldColor,
       appBarTheme: AppBarTheme(
-          color: background,
+          color: primaryColor,
       ),
     );
   }

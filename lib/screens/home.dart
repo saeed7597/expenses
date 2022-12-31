@@ -7,7 +7,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../widgets/header_home.dart';
 import '../widgets/week_chart.dart';
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+  const Home({Key? key,required this.onTab,required this.themeMode}) : super(key: key);
+  final Function() onTab;
+  final ThemeMode themeMode;
 
   @override
   State<Home> createState() => _HomeState();
@@ -32,7 +34,15 @@ class _HomeState extends State<Home> {
               localization!.titleAppBarHomeScreen,
               style: Theme.of(context).textTheme.subtitle1!.copyWith(fontSize: 18),
             ),
-            actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.brightness_3,color: Colors.grey,))],
+            actions: [
+              IconButton(
+                  onPressed: widget.onTab,
+                  icon: Icon(
+                    widget.themeMode == ThemeMode.light ? Icons.brightness_3 : Icons.sunny,
+                    color:  widget.themeMode == ThemeMode.light ? Colors.black : Colors.white,
+                  )
+              )
+            ],
           ),
           body: SingleChildScrollView(
             child: Column(
@@ -59,10 +69,10 @@ class _HomeState extends State<Home> {
                   padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: Container(
                     decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: Theme.of(context).primaryColor,
                         borderRadius: BorderRadius.circular(16)),
                     child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 12),
+                      padding: const EdgeInsets.symmetric(horizontal: 12),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -75,7 +85,7 @@ class _HomeState extends State<Home> {
                               width: 40,
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
-                                  color: const Color(0xFFF0F3F9),
+                                  color: Theme.of(context).primaryColor,
                                   borderRadius: BorderRadius.circular(10)),
                               child: SvgPicture.asset(
                                 'assets/svg/send.svg',
@@ -106,7 +116,7 @@ class _HomeState extends State<Home> {
                               width: 40,
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
-                                  color: const Color(0xFFF0F3F9),
+                                  color: Theme.of(context).primaryColor,
                                   borderRadius: BorderRadius.circular(10)),
                               child: SvgPicture.asset(
                                 'assets/svg/send.svg',
@@ -137,7 +147,7 @@ class _HomeState extends State<Home> {
                               width: 40,
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
-                                  color: const Color(0xFFF0F3F9),
+                                  color: Theme.of(context).primaryColor,
                                   borderRadius: BorderRadius.circular(10)),
                               child: SvgPicture.asset(
                                 'assets/svg/send.svg',
@@ -168,7 +178,7 @@ class _HomeState extends State<Home> {
                               width: 40,
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
-                                  color: const Color(0xFFF0F3F9),
+                                  color: Theme.of(context).primaryColor,
                                   borderRadius: BorderRadius.circular(10)),
                               child: SvgPicture.asset(
                                 'assets/svg/send.svg',
@@ -226,9 +236,8 @@ class _HomeState extends State<Home> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: Container(
-
                       decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: Theme.of(context).primaryColor,
                           borderRadius: BorderRadius.circular(16)),
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -246,7 +255,7 @@ class _HomeState extends State<Home> {
                                         width: 30,
                                         height: 30,
                                         decoration: BoxDecoration(
-                                            color: Color(0xFFF0F3F9),
+                                            color: Theme.of(context).primaryColor,
                                             borderRadius: BorderRadius.circular(2)),
                                         child: const Center(
                                           child: Text("W",
@@ -260,7 +269,7 @@ class _HomeState extends State<Home> {
                                         width: 30,
                                         height: 30,
                                         decoration: BoxDecoration(
-                                            color: Colors.white,
+                                            color: Theme.of(context).primaryColor,
                                             borderRadius: BorderRadius.circular(2)),
                                         child: const Center(
                                           child: Text(
