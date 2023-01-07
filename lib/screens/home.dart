@@ -7,8 +7,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../widgets/header_home.dart';
 import '../widgets/week_chart.dart';
 class Home extends StatefulWidget {
-  const Home({Key? key,required this.onTab,required this.themeMode}) : super(key: key);
+  const Home({Key? key,required this.onTab,required this.themeMode,required this.changeLanguage}) : super(key: key);
   final Function() onTab;
+  final Function() changeLanguage;
   final ThemeMode themeMode;
 
   @override
@@ -23,6 +24,7 @@ class _HomeState extends State<Home> {
       weekSelected = week;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     final localization = AppLocalizations.of(context);
@@ -41,7 +43,15 @@ class _HomeState extends State<Home> {
                     widget.themeMode == ThemeMode.light ? Icons.brightness_3 : Icons.sunny,
                     color:  widget.themeMode == ThemeMode.light ? Colors.black : Colors.white,
                   )
-              )
+              ),
+              IconButton(
+                  onPressed:widget.changeLanguage,
+                  icon: Icon(
+                    Icons.more_vert_outlined,
+                    color:  widget.themeMode == ThemeMode.light ? Colors.black : Colors.white,
+                  )
+              ),
+
             ],
           ),
           body: SingleChildScrollView(
@@ -55,7 +65,7 @@ class _HomeState extends State<Home> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 22),
                   child: Text(
-                    "Recent transactions",
+                    localization.recentTransactionsHomeScreen,
                     style: Theme.of(context)
                         .textTheme
                         .subtitle1!
@@ -217,16 +227,16 @@ class _HomeState extends State<Home> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Spending report",
+                        localization.spendingReportHomeScreen,
                         style: Theme.of(context)
                             .textTheme
                             .subtitle1!
                             .copyWith(fontWeight: FontWeight.w500),
                       ),
-                      Text("View",
+                      Text(localization.viewHomeScreen,
                           style: Theme.of(context).textTheme.subtitle1!.copyWith(
                               fontWeight: FontWeight.w500,
-                              color: Color(0xff0048B7))),
+                              color: const Color(0xff0048B7))),
                     ],
                   ),
                 ),

@@ -25,7 +25,7 @@ class HeaderScreen extends StatelessWidget {
           children: [
             const SizedBox(height: 24,),
             Text(
-              localization!.titleBalance,
+              localization!.titleBalanceHomeScreen,
               style: Theme.of(context).textTheme.subtitle2!.copyWith(fontWeight: FontWeight.w400),),
             const SizedBox(height: 10,),
             Text(
@@ -38,11 +38,11 @@ class HeaderScreen extends StatelessWidget {
             const SizedBox(height: 20,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                ItemWork(icon: 'assets/svg/receipt-item.svg', name: 'Pay'),
-                ItemWork(icon: 'assets/svg/money-send.svg', name: 'Transfer'),
-                ItemWork(icon: 'assets/svg/money-recive.svg', name: 'Receive'),
-                ItemWork(icon: 'assets/svg/math.svg', name: 'Split')
+              children: [
+                ItemWork(icon: 'assets/svg/receipt-item.svg', name: localization.payHomeScreen),
+                ItemWork(icon: 'assets/svg/money-send.svg', name: localization.transferHomeScreen),
+                ItemWork(icon: 'assets/svg/money-recive.svg', name: localization.receiveHomeScreen),
+                ItemWork(icon: 'assets/svg/math.svg', name: localization.splitHomeScreen)
               ],
             ),
             const SizedBox(height: 10,),

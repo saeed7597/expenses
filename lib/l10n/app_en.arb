@@ -1,4 +1,12 @@
 {
+  "titleProject" : "Expenses",
   "titleAppBarHomeScreen" : "Home",
-  "titleBalance": "Balance"
+  "titleBalanceHomeScreen": "Balance",
+  "payHomeScreen" : "pay",
+  "transferHomeScreen" : "transfer",
+  "receiveHomeScreen": "receive",
+  "splitHomeScreen": "split",
+  "recentTransactionsHomeScreen" : "Recent transactions",
+  "spendingReportHomeScreen" : "spendingReport",
+  "viewHomeScreen" : "view"
 }

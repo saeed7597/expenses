@@ -1,4 +1,12 @@
 {
+  "titleProject" : "هزینه ها",
   "titleAppBarHomeScreen" : "خانه",
-  "titleBalance": "موجودی"
+  "titleBalanceHomeScreen": "موجودی",
+  "payHomeScreen" : "پرداخت",
+  "transferHomeScreen" : "برداشت",
+  "receiveHomeScreen": "واریز",
+  "splitHomeScreen": "محاسبه",
+  "recentTransactionsHomeScreen" : "تراکنش های اخیر",
+  "spendingReportHomeScreen" : "گزارش تراکنش ها",
+  "viewHomeScreen" : "نمایش"
 }

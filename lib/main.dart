@@ -1,5 +1,6 @@
 
 import 'package:expenses/screens/home.dart';
+import 'package:expenses/utils/config.dart';
 import 'package:expenses/utils/get_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final Locale _locale = const Locale('en');
+  Locale _locale = const Locale('en');
   ThemeMode _themeMode = ThemeMode.light;
 
   updateThemeApp() {
@@ -28,6 +29,15 @@ class _MyAppState extends State<MyApp> {
           : _themeMode = ThemeMode.light;
     });
   }
+
+  updateLanguage() {
+    setState(() {
+      _locale ==  const Locale('en')
+          ? _locale = const Locale('fa')
+          : _locale = const Locale('en');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -47,9 +57,13 @@ class _MyAppState extends State<MyApp> {
       home: Home(
         onTab: (){updateThemeApp();},
         themeMode: _themeMode,
+        changeLanguage: (){updateLanguage();}
       ),
     );
   }
 }
+
+
+
 
 

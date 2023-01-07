@@ -14,7 +14,7 @@ class ThemeAppConfig {
   ThemeAppConfig.dark()
       : brightness = Brightness.dark,
         primaryColor = Colors.black,
-        scaffoldColor = const Color(0xff101010);
+        scaffoldColor = const Color(0xff000000);
 
   ThemeData getTheme(String langCode) {
     return ThemeData(
